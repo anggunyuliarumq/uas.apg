@@ -1,18 +1,13 @@
-if(!require('rvest')) {
-  install.packages('rvest')
-  library('rvest')
-}
+#memanggil dan membaca data
+D <- read_html("https://raw.githubusercontent.com/anggunyuliarumq/uas.apg/main/a.txt") %>% 
+         html_text("p") %>% 
+         { read.table(text = ., header = F) }
 
 #memanggil dan membaca data
-A <- read_html("https://raw.githubusercontent.com/anggunyuliarumq/uas.apg/main/a.txt") %>% 
+A <- read_html("https://raw.githubusercontent.com/anggunyuliarumq/uas.apg/main/D.txt") %>% 
          html_text("p") %>% 
          { read.table(text = ., header = F) }
 A_t=t(A)
-#memanggil dan membaca data
-D <- read_html("https://raw.githubusercontent.com/anggunyuliarumq/uas.apg/main/D.txt") %>% 
-         html_text("p") %>% 
-         { read.table(text = ., header = F) }
 S=-0.5*A*D*A_t
 S
 eigen(S)
-
