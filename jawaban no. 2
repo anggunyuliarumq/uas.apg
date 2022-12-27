@@ -1,3 +1,8 @@
+if(!require('rvest')) {
+  install.packages('rvest')
+  library('rvest')
+}
+
 #memanggil dan membaca data
 A <- read_html("https://raw.githubusercontent.com/anggunyuliarumq/uas.apg/main/a.txt") %>% 
          html_text("p") %>% 
