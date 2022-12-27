@@ -1,0 +1,6 @@
+A=read.table("E:\\a\\A\\a.txt")
+A_t=t(A)
+D=read.table("E:\\a\\A\\D.txt")
+S=-0.5*A*D*A_t
+S
+eigen(S)
