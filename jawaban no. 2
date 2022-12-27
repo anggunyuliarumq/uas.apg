@@ -7,12 +7,13 @@ if(!require('rvest')) {
 D <- read_html("https://raw.githubusercontent.com/anggunyuliarumq/uas.apg/main/a.txt") %>% 
          html_text("p") %>% 
          { read.table(text = ., header = F) }
-
+D<-as.matrix(D)
 #memanggil dan membaca data
 A <- read_html("https://raw.githubusercontent.com/anggunyuliarumq/uas.apg/main/D.txt") %>% 
          html_text("p") %>% 
          { read.table(text = ., header = F) }
+A<-as.matrix(A)
 A_t=t(A)
-S=-0.5*A*D*A_t
+S=-0.5*(A%*%D%*%A_t)
 S
 eigen(S)
