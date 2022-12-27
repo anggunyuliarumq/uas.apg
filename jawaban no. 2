@@ -16,4 +16,12 @@ A<-as.matrix(A)
 A_t=t(A)
 S=-0.5*(A%*%D%*%A_t)
 S
-eigen(S)
+eig=eigen(S)
+nilai_eigen=eig$values
+vektor_eigen=eig$vectors
+M_set=diag(sqrt(1/6),6)
+Gamma_set=diag(nilai_eigen)
+Kappa=vektor_eigen
+F=M_set%*%Kappa%*%Gamma_set
+F
+
